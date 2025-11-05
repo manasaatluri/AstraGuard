@@ -1,0 +1,15 @@
+# pack-refs with: peeled fully-peeled sorted 
+d1c41f6c11ebbf7553523369dcde44bf6b487ade refs/remotes/origin/add-resize-helper
+e2ea1b7167ba0edecc0cadbd44708379fd974cb7 refs/remotes/origin/classify-video-example
+7dd8d46fbcc9e91b34da050b924ace777944f0fb refs/remotes/origin/custom-example-fix
+6e1793bd9340b48c2f4cf9b8de1d80a00317c5d7 refs/remotes/origin/feature/object-tracking-labels
+e824810e52bc7e2474c336eab4bdc39e4e5226db refs/remotes/origin/fix-13967
+2496d9cd449ee0b01197288ec9859ef5fe74792a refs/remotes/origin/fix-image-rescale
+af99d01875692cdb76309f7722e059f2db80d880 refs/remotes/origin/freeform-shm
+60592cf60ebefd3ee57afb8681f4e5e0df3e7b87 refs/remotes/origin/master
+8d138d6e608220f89109e2aa1a29cd47910a8b4e refs/remotes/origin/pip-on-release
+1c9cef8349bc84043df37881351d1204940dfec5 refs/remotes/origin/publish-to-pypi-action
+9ec46795c52822c91cc7fc601c503bf345263704 refs/remotes/origin/relicense
+5c18fbc7ded2896971228df1067ab07729f859e7 refs/remotes/origin/shm
+4f383479a8c4f8c4aa1c5ea92354fe264f2ce26f refs/remotes/origin/update_readme
+fb1208c16ca9af7f01ce8abfbf9a502b06a36865 refs/remotes/origin/video-frame-intervals

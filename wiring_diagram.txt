@@ -1,0 +1,29 @@
+WIRING (BCM numbering):
+
+Raspberry Pi GPIO pins (BCM):
+
+1) PIR Sensor (HC-SR501):
+   - VCC -> 5V (pin 2 or 4) OR 3.3V (depending on PIR module)
+   - GND -> GND (pin 6)
+   - OUT -> GPIO17 (BCM 17, physical pin 11)
+
+2) Buzzer (active buzzer) via transistor:
+   - Buzzer + -> 5V or 3.3V (depending on buzzer)
+   - Buzzer - -> Collector of NPN transistor (e.g., 2N2222)
+   - Emitter of transistor -> GND
+   - Base of transistor -> GPIO27 (BCM 27, physical pin 13) via 1k resistor
+   - Add diode across buzzer if driving inductive loads; use common ground.
+
+3) Pi Camera:
+   - Connect camera ribbon to CSI connector or use USB webcam to USB port.
+
+4) Power:
+   - Use a regulated 5V 2.5A supply for Pi 3/4; for field deploy, use a power bank or solar + charge controller.
+
+Safety:
+ - Use level shifting if a peripheral needs different voltage.
+ - Use a transistor to drive buzzer to avoid drawing GPIO current.
+
+Optional:
+ - Add IR illuminator for night vision.
+ - Enclose electronics in waterproof enclosure with camera window.

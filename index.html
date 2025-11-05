@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AstraGuard-AI Dashboard</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f8fa;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #0a2a43;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+.container {
+    width: 90%;
+    margin: auto;
+    padding: 15px;
+}
+.section-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+.status-online { color: green; font-weight: bold; }
+.status-offline { color: red; font-weight: bold; }
+
+#cameraFrame {
+    width: 100%;
+    height: 280px;
+    background: #000;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.alert {
+    background: #ffe6e6;
+    border-left: 5px solid red;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+table, th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background: #0a2a43;
+    color: white;
+}
+</style>
+</head>
+
+<body>
+<header>
+    <h2>AstraGuard-AI Wildlife Protection System</h2>
+</header>
+
+<div class="container">
+
+<!-- Device Status -->
+<div class="card">
+    <h3 class="section-title">Device Status</h3>
+    <p>Raspberry-Pi Status: <span id="deviceStatus" class="status-offline">Offline</span></p>
+</div>
+
+<!-- Live Camera Feed -->
+<div class="card">
+    <h3 class="section-title">Live Camera Feed</h3>
+    <img id="cameraFrame" src="" alt="Awaiting camera feed...">
+</div>
+
+<!-- Live Alert -->
+<div class="card">
+    <h3 class="section-title">Live Detection</h3>
+    <p>Detected Animal: <b id="animalName">None</b></p>
+    <p>Confidence: <b id="confidence">0%</b></p>
+</div>
+
+<!-- Alert Messages -->
+<div class="card">
+    <h3 class="section-title">Alerts</h3>
+    <div id="alertFeed"></div>
+</div>
+
+<!-- Logs -->
+<div class="card">
+    <h3 class="section-title">Detection Logs</h3>
+    <table id="logTable">
+        <tr>
+            <th>Time</th>
+            <th>Animal</th>
+            <th>Confidence</th>
+        </tr>
+    </table>
+</div>
+
+</div>
+
+<script>
+// Simulated Live Data (replace with real API/websocket)
+function mockData(){
+    const animals = ["Boar","Cow","Monkey","Human","Dog","None"];
+    let animal = animals[Math.floor(Math.random()*animals.length)];
+    let conf = Math.floor(Math.random()*100);
+
+    document.getElementById("animalName").innerText = animal;
+    document.getElementById("confidence").innerText = conf+"%";
+    document.getElementById("cameraFrame").src = "https://picsum.photos/500?random=" + Math.random();
+
+    // Set device online
+    document.getElementById("deviceStatus").innerText = "Online";
+    document.getElementById("deviceStatus").className = "status-online";
+
+    if(animal !== "None"){
+        let alertBox = document.createElement("div");
+        alertBox.className = "alert";
+        alertBox.innerHTML = `<b>Alert!</b> ${animal} detected with ${conf}% confidence.`;
+        document.getElementById("alertFeed").prepend(alertBox);
+
+        let table = document.getElementById("logTable");
+        let row = table.insertRow(1);
+        row.insertCell(0).innerText = new Date().toLocaleTimeString();
+        row.insertCell(1).innerText = animal;
+        row.insertCell(2).innerText = conf+"%";
+    }
+}
+
+// ** Replace mockData() with Real device API/Websocket Later **
+setInterval(mockData, 5000);
+</script>
+
+</body>
+</html>

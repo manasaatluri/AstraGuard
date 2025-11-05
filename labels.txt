@@ -1,0 +1,7 @@
+boar
+cow
+monkey
+human
+dog
+bird
+none

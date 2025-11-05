@@ -1,5 +1,3 @@
-# AstraGuard
-AstraGuard-AI is an edge-powered wildlife intrusion system for farms, detecting animals like boars, monkeys, cows, dogs, and humans in real time using TinyML and sensors on devices like Raspberry Pi. It works without internet, alerts farmers instantly, and triggers safe deterrents to prevent crop damage and reduce human-wildlife conflict.
-
-Impact: 
-AstraGuard-AI is an edge-powered wildlife intrusion system for farms, detecting animals like boars, monkeys, cows, dogs, and humans in real time using TinyML and sensors on devices like Raspberry Pi. It works without internet, alerts farmers instantly, and triggers safe deterrents to prevent crop damage and reduce human-wildlife conflict.
+Optional lightweight Flask or FastAPI service that accepts incoming detections and forwards to mobile app.
+E.g. POST /alert { label,score,timestamp, image_url }.
+Not strictly required when using Telegram.
